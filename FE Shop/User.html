@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex mt-5">
+                <p class="mr-3 head-contact"><img src="./image/phone-call.png" width="30px" alt=""> Hotline: 1900 6789
+                </p>
+                <p class="head-contact head-map"><img src="./image/placeholder.png" width="30px" alt=""> Hệ Thống cửa
+                    hàng</p>
+            </div>
+            <div>
+                <a href="./Home.html"><img src="./image/logo6nobgpts2.png" class="" width="120px" alt=""></a>
+
+            </div>
+
+            <div class=" mt-5">
+                <input type="text" name="" placeholder="Tìm kiếm?" id="" class="inp-search-head">
+                <button class="btn-primary btn-search"><img src="./image/search.png" alt=""></button>
+
+                <img src="./image/bell.png" class="mx-3" width="30px" alt="">
+                <img src="./image/user (1).png " class="mr-3" width="30px" alt="">
+                <img src="./image/shopping-bag.png " width="30px" alt="">
+            </div>
+        </div>
+
+
+    </header>
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Hồ sơ của tôi</h3>
+                <p class="mt-3">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <label class="mt-3" for="">Tên người dùng</label>
+                <input type="text" class="form-control" placeholder="user name" name="" id="inp-username">
+                <label class="mt-3" for="">First name</label>
+                <input type="text" class="form-control" placeholder="first name name" name="" id="inp-fname">
+                <label class="mt-3" for="">Last name</label>
+                <input type="text" class="form-control" placeholder="last name" name="" id="inp-lname">
+                <label class="mt-3" for="">address</label>
+                <input type="text" class="form-control" placeholder="address" name="" id="inp-address">
+                <label class="mt-3" for="">email</label>
+                <input type="text" class="form-control" placeholder="emai; name" name="" id="inp-email">
+                <label class="mt-3" for="">Số điện thoại</label>
+                <input type="text" class="form-control" placeholder="số điện thoại" name="" id="inp-phone">
+                <label class="mt-3" for="">Country</label>
+                <select name="" id="" class="form-control">
+                    <option value="">VietNam</option>
+                </select>
+
+
+            </div>
+            <div class="col-sm-4">
+                <img src="./image/cat.jpg" width="100%" alt="">
+            </div>
+        </div>
+        <div class="mt-5 d-flex d-flex justify-content-end">
+            <button id="btn-save-info" class="btn btn-success px-5 py-3">Lưu</button>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="row row-footer">
+            <div class="col-sm-3 mt-5 mb-5">
+                <p class="footer-title mb-4">PRODUCT</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <p class="footer-title mb-4">SERVICE</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <p class="footer-title mb-4">SUPPORT</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <img src="./image/logo6nobgpts2.png" class="" width="120px" alt="">
+                <div class="d-flex mt-5">
+                    <i class="fab fa-facebook-square fa-lg mr-3"></i>
+                    <i class="fab fa-twitter fa-lg mr-3"></i>
+                    <i class="fab fa-instagram fa-lg mr-3"></i>
+                    <i class="fab fa-youtube fa-lg"></i>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+<script>
+    "use strict";
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+    const gBASE_URL = "http://localhost:8080/"
+    var accessToken = localStorage.getItem('token');
+    var vUserId = localStorage.getItem('user_id');
+    var vCustomerId = 0;
+    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+    $(document).ready(function () {
+        onLoadUser();
+        // onCreateCustomerByUserId();
+        onLoadInfoUser();
+        $("#btn-save-info").on("click", function () {
+            onBtnUpdateCustomer(vCustomerId);
+        })
+    })
+    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+    function onLoadUser() {
+        $.ajax({
+            url: gBASE_URL + "users/allUsers",
+            type: "GET",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            success: function (paramRes) {
+
+                console.log(paramRes);
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+
+        })
+    }
+    function onCreateCustomerByUserId() {
+        var vObj = {
+            lastName: null,
+            firstName: null,
+            phoneNumber: null,
+            address: null,
+            city: null,
+            state: null,
+            postalCode: null,
+            country: null,
+            saleRepEmployeeNumber: 0,
+            creditLimit: 0,
+            payments: [],
+            orders: []
+        }
+        $.ajax({
+            url: gBASE_URL + "customer/" + vUserId,
+            type: "POST",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(vObj),
+
+            success: function (paramRes) {
+                alert("success");
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+        })
+    }
+    function onLoadInfoUser() {
+        $.ajax({
+            url: gBASE_URL + "users/user/" + vUserId,
+            type: "GET",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            success: function (paramRes) {
+
+                console.log(paramRes);
+                handleLoadData(paramRes);
+                vCustomerId = paramRes.customer.id;
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+
+        })
+    }
+    function onBtnUpdateCustomer(vIdCustomer) {
+        var vObj = {
+            lastName: null,
+            firstName: null,
+            phoneNumber: null,
+            address: null,
+            city: null,
+            state: null,
+            postalCode: null,
+            country: null,
+            saleRepEmployeeNumber: 0,
+            creditLimit: 0,
+            payments: [],
+            orders: []
+        }
+
+        thuThapThongTinInforCustomer(vObj);
+        $.ajax({
+            url: gBASE_URL + "customer/" + vIdCustomer,
+            type: "PUT",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(vObj),
+
+            success: function (paramRes) {
+                alert("success");
+                window.location.href = "http://localhost:5500/Payment.html"
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+        })
+
+    }
+    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    function handleLoadData(paramData) {
+        $("#inp-username").val(paramData.username);
+        $("#inp-fname").val(paramData.customer.firstName);
+        $("#inp-lname").val(paramData.customer.lastName);
+        $("#inp-email").val(paramData.email);
+        $("#inp-phone").val(paramData.customer.phoneNumber);
+        $("#inp-address").val(paramData.customer.address);
+
+    }
+    function thuThapThongTinInforCustomer(paramObj) {
+        paramObj.lastName = $("#inp-lname").val();
+        paramObj.firstName = $("#inp-fname").val();
+        paramObj.phoneNumber = $("#inp-phone").val();
+        paramObj.address = $("#inp-address").val();
+    }
+</script>
+
+
+
+</html>

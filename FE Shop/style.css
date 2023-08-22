@@ -1,0 +1,250 @@
+header{
+    margin-left: 150px;
+    margin-right: 150px;
+    position: relative;
+}
+.head-contact{
+    font-size: 20px;
+}
+.inp-search-head{
+    padding: 10px;
+    
+   
+    border: 1px solid #3b78ff;
+}
+.btn-search{
+  position: absolute;
+    margin-left: -50px;
+   border: 2px solid #3b78ff;
+   padding: 5px;
+   
+}
+@media (max-width: 576px) {
+    header{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .inp-search-head{
+        display: none;
+    }
+    .head-map{
+        display: none;
+    }
+    .btn-search{
+        display: none;
+    }
+    .img-search{
+        display: none;
+    }
+    .content{
+        /* margin-top: 100px; */
+        /* margin-left: 10px;
+        margin-right: 10px; */
+    }
+
+}
+.content{
+    margin-top: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-size: 18px;
+}
+.product-name{
+    font-size: 22px;
+}
+.price-product{
+    font-size: 22px;
+    font-weight: 500;
+    color: brown;
+}
+.price-product-decoration{
+    font-size: 20px;
+    
+    text-decoration: line-through;
+}
+#carouselExampleControls{
+    /* margin-left: 150px;
+    margin-right: 150px; */
+}
+/* product */
+input.filter-check{
+    width: 20px;
+    height: 20px;
+}
+.title-filter{
+    color: 23px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    color: #3b78ff;
+}
+
+.filter-categories a{
+    margin-top: 13px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.filter-top{
+    margin-top: 80px;
+}
+.pagination{
+    /* margin-left:; */
+    /* margin-right: auto; */
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+  }
+  
+  .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;} 
+  /* detail product */
+  .detail-title-product{
+    font-size: 23px;
+    font-weight: 700;
+  }
+  .price-detail{
+    font-size: 23px;
+    color: red;
+    font-weight: 700;
+  }
+  .count-detail{
+    font-size: 19px;
+
+  }
+  .introduce-detail{
+    text-align: justify;
+  }
+  .description-detail{
+    text-align: justify;
+    line-height: 1.8;
+  }
+  .img-detail-more{
+    margin-top: 30px;
+    margin-right: 20px;
+    border: 1px solid #ddd;
+  }
+/* docthem text */
+#text-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  #text {
+    padding-right: 20px; /* Để tạo không gian cho thanh cuộn */
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  #overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Chiều cao của overlay */
+    background: linear-gradient(to bottom, transparent, white);
+  }
+  
+  #read-more-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 500px;
+    padding: 5px 10px;
+    background-color: #3b78ff;
+    color: #ffff;
+    cursor: pointer;
+  }
+  /* login */
+  .login{
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    padding: 70px;
+  }
+
+  /* payment */
+.payment{
+  border: 1px solid #dae3da;
+  border-radius: 10px;
+}
+.order-payment{
+  margin: 20px 30px;
+  
+}  
+.text-jus{
+  text-align: justify;
+}
+/* Follow */
+.follow{
+  font-size: 19px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  margin-bottom: 60px;
+}
+.btn-order-bot{
+  padding: 10px;
+  color: #ffff;
+  font-size: 19px;
+  
+  
+}
+.follow-price{
+  font-size: 25px;
+}
+.follow-7day{
+  /* margin-top: 50px; */
+  font-size: 19px;
+  border: 1px solid rgb(230, 17, 17);
+  padding: 5px;
+  color: #3b78ff;
+  width: 150px;
+}
+.follow-price-deco{
+  text-decoration: line-through;
+  font-size: 20px;
+}
+.follow-search{
+  padding: 15px;
+  width: 100%;
+  border:1px solid #3b78ff;
+  border-radius: 10px;
+}
+.follow-status{
+  border: 1px solid #3b78ff;
+  padding: 10px;
+  color: #3b78ff;
+  border-radius: 10px;
+}
+.img-follow-headphone{
+  border: 1px solid #dae3da;
+  padding: 10px;
+}
+footer{
+    
+    margin-top: 100px;
+    background-color: rgb(234, 234, 234);
+}
+.footer-title{
+    font-size: 20px;
+    font-weight: 500;
+
+}
+.footer-text{
+    font-size: 19px;
+
+}
+.row-footer{
+    
+    margin-left: 150px;
+    margin-right: 150px;
+}

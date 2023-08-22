@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #e8f1ff;
+        }
+
+        .row-login {
+            margin-top: 110px;
+
+        }
+
+        .col-login {
+            box-shadow: 0px 5px 10px 8px #888888;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="row row-login d-flex justify-content-center">
+        <div class="col-login col-sm-5">
+            <h2 class="text-center my-3">Login Admin</h2>
+            <label class="mt-5" for="">Username</label>
+            <input type="text" class="form-control" name="" id="inp-username">
+            <label for="" class="mt-3">Password</label>
+            <input type="text" class="form-control" name="" id="inp-password">
+            <button id="btn-login" class="btn btn-success mt-5 mb-5 form-control">Login</button>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    $(document).ready(function () {
+        $("#btn-login").on("click", function () {
+            onBtnLogin();
+        })
+
+    })
+    function onBtnLogin() {
+        var vObj = {
+            username: "",
+            password: "",
+        }
+        vObj.username = $("#inp-username").val();
+        vObj.password = $("#inp-password").val();
+        if (vObj.username == "dahuynh" && vObj.password == "123456789") {
+            $.ajax({
+                url: "http://localhost:8080/api/auth/signin",
+
+                type: "POST",
+                // headers: { "Authorization": "Bearer " + "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhYmMiLCJpYXQiOjE2OTE0MDIwOTQsImV4cCI6MTY5MTQ4ODQ5NH0.7dWl4h_8Jptm738eAbGY4lOgGzGql9JiuZ8oXTy7C1fyBDHN3MIFP4B-S0MrjDteYh_57AF8hqNFwYcrKh7GTw" },
+                data: JSON.stringify(vObj),
+                datatype: "application/json",
+                contentType: "application/json; charset=utf-8",
+                success: function (paramRes) {
+
+                    var token = paramRes.accessToken;
+                    var url = "http://localhost:5501/Customer.html?access_token=" + token;
+                    window.location.href = url;
+                    localStorage.setItem('token', paramRes.accessToken);
+
+                    console.log(paramRes.accessToken);
+                },
+                error: function (paramErr) {
+                    alert(paramErr.status);
+                }
+
+            })
+        }
+        else {
+            alert("Ban khong phai admin");
+        }
+
+    }
+</script>
+
+</html>

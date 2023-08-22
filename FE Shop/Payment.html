@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex mt-5">
+                <p class="mr-3 head-contact"><img src="./image/phone-call.png" width="30px" alt=""> Hotline: 1900 6789
+                </p>
+                <p class="head-contact head-map"><img src="./image/placeholder.png" width="30px" alt=""> Hệ Thống cửa
+                    hàng</p>
+            </div>
+            <div>
+                <a href="./Home.html"><img src="./image/logo6nobgpts2.png" class="" width="120px" alt=""></a>
+
+            </div>
+
+            <div class=" mt-5">
+                <input type="text" name="" placeholder="Tìm kiếm?" id="" class="inp-search-head">
+                <button class="btn-primary btn-search"><img src="./image/search.png" alt=""></button>
+
+                <img src="./image/bell.png" class="mx-3" width="30px" alt="">
+                <a href="./User.html">
+                    <img src="./image/user (1).png " class="mr-3" width="30px" alt="">
+                </a>
+
+                <a href="./Cart.html"><img src="./image/shopping-bag.png " width="30px" alt=""></a>
+
+            </div>
+        </div>
+
+
+    </header>
+    <div class="content">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Địa chỉ nhận hàng</h2>
+                <label class="mt-3" for="">Họ và tên </label>
+                <input type="text" name="" id="inp-name" class="form-control" placeholder="Họ và tên">
+                <div class="d-flex">
+                    <div class="mr-auto p-2">
+                        <label class="mt-3 " for="">Số điện thoại </label>
+                        <input type="text" name="" id="inp-phone" class="form-control" placeholder="Số điện thoại">
+                    </div>
+                    <div class="p-2">
+                        <label class="mt-3" for="">Địa chỉ email</label>
+                        <input type="text" name="" id="inp-email" class="form-control" placeholder="Địa chỉ email">
+                    </div>
+
+                </div>
+                <div class="d-flex">
+                    <div class="mr-auto p-2">
+                        <label class="mt-3" for="">Thành phố </label>
+                        <input type="text" name="" id="inp-country" class="form-control" placeholder="Thành phố">
+                    </div>
+                    <div class="p-2">
+                        <label class="mt-3" for="">Địa chỉ</label>
+                        <input type="text" name="" id="inp-address" class="form-control" placeholder="Địa chỉ">
+                    </div>
+
+                </div>
+
+                <hr class="mt-5">
+                <div class="mt-5">
+                    <h2>Thông tin thêm</h2>
+                    <p class="mt-3">Ghi chú đơn hàng</p>
+                    <textarea id="w3review" name="w3review" rows="4" cols="50" class="form-control"
+                        placeholder="Ghi chú">
+
+                    </textarea>
+
+                </div>
+
+            </div>
+            <div class="col-sm-6 payment">
+                <div class="order-payment">
+                    <h2 class="mb-5">Đơn hàng của bạn</h2>
+                    <div class="d-flex">
+                        <h4 class="mr-auto p-2">Sản phẩm</h4>
+                        <h4 class="p-2">SUBTOTAL</h4>
+                    </div>
+                    <hr class="my-3">
+                    <div id="fill-order">
+                        <div id="order-title">
+
+                        </div>
+
+
+                        <hr class="my-3">
+                        <div class="d-flex">
+                            <p class="mr-auto p-2">Tạm tính</p>
+                            <p class="total-price" class="p-2">230$</p>
+                        </div>
+                        <hr class="my-3">
+                        <div class="d-flex">
+                            <h4 class="mr-auto p-2">Tổng cộng</h4>
+                            <h4 class="total-price" class="p-2">230$</h4>
+                        </div>
+
+                    </div>
+
+                    <hr class="my-3">
+                    <div>
+                        <div class="d-flex">
+                            <input type="radio" name="" id="">
+                            <p class="ml-3">Trả tiền mặt khi nhận hàng</p>
+                        </div>
+                        <p class="my-3">Các bạn phải trả tiền khi nhận hàng!</p>
+                        <p class="text-danger">Ngay tại nhà bạn!</p>
+                    </div>
+                    <hr class="my-3">
+                    <div class="d-flex">
+                        <input type="radio" name="" id="">
+                        <p class="ml-3">Chuyển khoản Ngân Hàng</p>
+                    </div>
+                    <hr class="my-3">
+                    <div class="d-flex">
+                        <input type="radio" name="" id="">
+                        <p class="ml-3">Trả trong 3 ký miễn phí</p>
+                    </div>
+                    <hr class="my-3">
+                    <div class="d-flex">
+                        <input type="radio" name="" id="">
+                        <p class="ml-3">Thanh toán qua thẻ ATM hoặc thẻ Quốc Tế(có trả góp dài kỳ)</p>
+                    </div>
+                    <hr class="my-3">
+                    <div>
+                        <p class="text-jus">Dữ liệu cá nhân của bạn sẽ được sử dụng để xử lý đơn đặt hàng của bạn, hỗ
+                            trợ trải nghiệm của
+                            bạn trên trang web này và cho các mục đích khác được mô tả trong chính sách riêng tư của
+                            chúng tôi.</p>
+                    </div>
+                    <button id="btn-payment" class="btn btn-success form-control my-4">Đặt hàng</button>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="row row-footer">
+            <div class="col-sm-3 mt-5 mb-5">
+                <p class="footer-title mb-4">PRODUCT</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <p class="footer-title mb-4">SERVICE</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <p class="footer-title mb-4">SUPPORT</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <img src="./image/logo6nobgpts2.png" class="" width="120px" alt="">
+                <div class="d-flex mt-5">
+                    <i class="fab fa-facebook-square fa-lg mr-3"></i>
+                    <i class="fab fa-twitter fa-lg mr-3"></i>
+                    <i class="fab fa-instagram fa-lg mr-3"></i>
+                    <i class="fab fa-youtube fa-lg"></i>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- modal -->
+    <div id="follow-order" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Thank you for successfully placing your order</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-follow" type="button" class="btn btn-primary">Follow Order</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+    "use strict";
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+    const gBASE_URL = "http://localhost:8080/"
+    var accessToken = localStorage.getItem('token');
+    var vUserId = localStorage.getItem('user_id');
+    var vCustomerId = 0;
+    var vAmount = 0;
+    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+    $(document).ready(function () {
+        onLoadInfoUser();
+        onLoadOrder();
+        onLoadCartByIdUser();
+        $("#btn-payment").on("click", function () {
+            console.log("id customer:" + vCustomerId);
+            onBtnAddPayment(vCustomerId);
+            onBtnAddOrder();
+            onBtnAddOrderDetail();
+            $("#follow-order").modal('show');
+            $("#btn-follow").on("click", function () {
+                window.location.href = "http://localhost:5500/FollowOrder.html"
+            })
+        })
+    })
+    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+
+
+    function onLoadInfoUser() {
+        $.ajax({
+            url: gBASE_URL + "users/user/" + vUserId,
+            type: "GET",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            success: function (paramRes) {
+
+                console.log(paramRes);
+                handleLoadData(paramRes);
+                vCustomerId = paramRes.customer.id;
+                localStorage.setItem('customer_id', paramRes.customer.id);
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+
+        })
+    }
+    function onLoadOrder() {
+        $.ajax({
+            url: gBASE_URL + "cart",
+            type: "GET",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            success: function (paramRes) {
+
+                console.log(paramRes);
+
+                // handleFillOrder(paramRes);
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+
+        })
+    }
+    function onLoadCartByIdUser() {
+        $.ajax({
+            url: gBASE_URL + "cart/" + vUserId,
+            type: "GET",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            success: function (paramRes) {
+
+                console.log(paramRes);
+                console.log("success cart by Id user");
+                handleFillOrder(paramRes);
+                vAmount = handleTotalBill(paramRes);
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+
+        })
+    }
+    function onBtnUpdateCustomer(vIdCustomer) {
+        var vObj = {
+            lastName: null,
+            firstName: null,
+            phoneNumber: null,
+            address: null,
+            city: null,
+            state: null,
+            postalCode: null,
+            country: null,
+            saleRepEmployeeNumber: 0,
+            creditLimit: 0,
+            payments: [],
+            orders: []
+        }
+
+        thuThapThongTinInforCustomer(vObj);
+        $.ajax({
+            url: gBASE_URL + "customer/" + vIdCustomer,
+            type: "PUT",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(vObj),
+
+            success: function (paramRes) {
+                alert("success");
+                location.reload();
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+        })
+
+    }
+    function onBtnAddPayment(vIdCustomer) {
+        var vObj = {
+            ammount: "",
+            checkNumber: "",
+
+        }
+        vObj.ammount = vAmount;
+        console.log(vObj);
+        $.ajax({
+            url: gBASE_URL + "payment/" + vIdCustomer,
+            type: "POST",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(vObj),
+            success: function (paramRes) {
+
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+        })
+    }
+
+    function onBtnAddOrder() {
+        var vObj = {
+            comments: "",
+            // OrderDate: "",
+            // requiredDate: "",
+            // shippedDate: "",
+            status: "Đơn hàng đang được giao",
+
+        }
+
+        $.ajax({
+            url: gBASE_URL + "order/" + vCustomerId,
+            type: "POST",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(vObj),
+            success: function (paramRes) {
+                console.log("add order success");
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+        })
+
+    }
+    function onBtnAddOrderDetail() {
+
+
+        $.ajax({
+            url: gBASE_URL + "/orderDetail/" + productId + "/" + customerId,
+        })
+    }
+    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    function handleLoadData(paramData) {
+        // $("#inp-username").val(paramData.username);
+        $("#inp-name").val(paramData.customer.firstName + " " + paramData.customer.lastName);
+
+        $("#inp-email").val(paramData.email);
+        $("#inp-phone").val(paramData.customer.phoneNumber);
+        $("#inp-address").val(paramData.customer.address);
+        $("#inp-country").val(paramData.customer.country);
+
+    }
+    function thuThapThongTinInforCustomer(paramObj) {
+        paramObj.lastName = $("#inp-lname").val();
+        paramObj.firstName = $("#inp-fname").val();
+        paramObj.phoneNumber = $("#inp-phone").val();
+        paramObj.address = $("#inp-address").val();
+    }
+    function handleFillOrder(paramData) {
+        var vTotal = 0;
+        for (var bI = 0; bI < paramData.length; bI++) {
+            vTotal += paramData[bI].totalBill
+            $("#order-title").append(`
+            <div class="d-flex order-title">
+                <p id="product-name" class="mr-auto p-2">${paramData[bI].product.productName} x ${paramData[bI].quantity}</p>
+                <p id="buy-price" class="p-2">${paramData[bI].product.buyPrice}</p>
+
+            </div>
+        `)
+
+        }
+
+        $(".total-price").html("$ " + vTotal)
+    }
+    function handleTotalBill(paramData) {
+        var vCount = 0;
+        for (var bI = 0; bI < paramData.length; bI++) {
+            vCount += paramData[bI].totalBill;
+        }
+        return vCount;
+    }
+
+
+</script>
+
+
+
+</html>

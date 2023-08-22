@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex mt-5">
+                <p class="mr-3 head-contact"><img src="./image/phone-call.png" width="30px" alt=""> Hotline: 1900 6789
+                </p>
+                <p class="head-contact head-map"><img src="./image/placeholder.png" width="30px" alt=""> Hệ Thống cửa
+                    hàng</p>
+            </div>
+            <div>
+                <a href="./Home.html"><img src="./image/logo6nobgpts2.png" class="" width="120px" alt=""></a>
+
+            </div>
+
+            <div class=" mt-5">
+                <input type="text" name="" placeholder="Tìm kiếm?" id="" class="inp-search-head">
+                <button class="btn-primary btn-search"><img src="./image/search.png" alt=""></button>
+
+                <img src="./image/bell.png" class="mx-3" width="30px" alt="">
+                <img src="./image/user (1).png " class="mr-3" width="30px" alt="">
+                <img src="./image/shopping-bag.png " width="30px" alt="">
+            </div>
+        </div>
+
+
+    </header>
+    <!-- div carasel -->
+
+    <!-- end -->
+
+    <div class="content ">
+        <table class="table " id="table-cart">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>STT</th>
+                    <th>Id</th>
+                    <th>Tên sản phẩm</th>
+                    <th></th>
+                    <th></th>
+                    <th>Số lượng</th>
+                    <th></th>
+                    <th>Đơn giá</th>
+                    <th>Thành Tiền</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+            <tbody id="tr-cart">
+                <tr>
+
+                </tr>
+            </tbody>
+
+        </table>
+        <div class="d-flex justify-content-end">
+            <button id="btn-payment" class="btn btn-primary">Payment</button>
+        </div>
+    </div>
+    <footer>
+        <div class="row row-footer">
+            <div class="col-sm-3 mt-5 mb-5">
+                <p class="footer-title mb-4">PRODUCT</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <p class="footer-title mb-4">SERVICE</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <p class="footer-title mb-4">SUPPORT</p>
+                <p class="footer-text">Help center</p>
+                <p class="footer-text">Contact Us</p>
+                <p class="footer-text">Warranty</p>
+                <p class="footer-text">Order Status</p>
+            </div>
+            <div class="col-sm-3 mt-5">
+                <img src="./image/logo6nobgpts2.png" class="" width="120px" alt="">
+                <div class="d-flex mt-5">
+                    <i class="fab fa-facebook-square fa-lg mr-3"></i>
+                    <i class="fab fa-twitter fa-lg mr-3"></i>
+                    <i class="fab fa-instagram fa-lg mr-3"></i>
+                    <i class="fab fa-youtube fa-lg"></i>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+<script>
+    "use strict";
+    /*** REGION 1 - Global variables - Vùng khai báo biến, hằng số, tham số TOÀN CỤC */
+    var productId = localStorage.getItem('productId');
+    const gBASE_URL = "http://localhost:8080/"
+    var accessToken = localStorage.getItem('token');
+    var vUserId = localStorage.getItem('user_id');
+
+
+    /*** REGION 2 - Vùng gán / thực thi sự kiện cho các elements */
+    $(document).ready(function () {
+        onLoadCart();
+        $("#table-cart").on("click", ".minus", function () {
+            var vId = parseInt($(this).closest('tr').find('td:nth-child(3)').text())
+            var vMinus = ($(this).closest('tr').find('td:nth-child(7)').text())
+            $(this).closest('tr').find('td:nth-child(7)').text(parseInt(vMinus - 1));
+            onBtnUpdateQuantity(vId, vMinus - 1);
+            onBtnUpdateQuantityFollowOrder(vId, vMinus - 1);
+        })
+        $("#table-cart").on("click", ".plus", function () {
+            var vId = parseInt($(this).closest('tr').find('td:nth-child(3)').text())
+            var vPlus = parseInt($(this).closest('tr').find('td:nth-child(7)').text())
+
+            $(this).closest('tr').find('td:nth-child(7)').text((vPlus + 1));
+            onBtnUpdateQuantity(vId, vPlus + 1);
+            onBtnUpdateQuantityFollowOrder(vId, vPlus + 1);
+        })
+        $("#table-cart").on("click", ".btn-delete", function () {
+            var vId = parseInt($(this).closest('tr').find('td:nth-child(3)').text())
+            onBtnDeleteCart(vId);
+        })
+        $("#btn-payment").on("click", function () {
+            alert("You need to provide complete information before making a purchase.");
+            window.location.href = "http://localhost:5500/User.html"
+
+        })
+
+
+    })
+    /*** REGION 3 - Event handlers - Vùng khai báo các hàm xử lý sự kiện */
+    function onLoadCart() {
+        $.ajax({
+            url: gBASE_URL + "cart/" + vUserId,
+            type: "GET",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            success: function (paramRes) {
+                fillDataTableCart(paramRes);
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+        })
+    }
+
+
+    function onBtnUpdateQuantity(vId, vQuantity) {
+        var vObj = {
+            quantity: 0,
+        }
+        vObj.quantity = vQuantity;
+        console.log(vObj.quantity);
+        $.ajax({
+            url: gBASE_URL + "cart/" + vId,
+            type: "PUT",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(vObj),
+
+            success: function (paramRes) {
+                location.reload();
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+        })
+
+    }
+    function onBtnUpdateQuantityFollowOrder(vId, vQuantity) {
+        var vObj = {
+            quantity: 0,
+        }
+        vObj.quantity = vQuantity;
+        console.log(vObj.quantity);
+        $.ajax({
+            url: gBASE_URL + "follow/" + vId,
+            type: "PUT",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(vObj),
+
+            success: function (paramRes) {
+
+                console.log("update follow order susscess")
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+        })
+
+    }
+    function onBtnDeleteCart(vId) {
+        $.ajax({
+            url: gBASE_URL + "cart/" + vId,
+            type: "DELETE",
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
+            success: function (paramRes) {
+                alert("delete success");
+                location.reload();
+            },
+            error: function (paramErr) {
+                alert(paramErr.status);
+            }
+
+        })
+    }
+    /*** REGION 4 - Common funtions - Vùng khai báo hàm dùng chung trong toàn bộ chương trình*/
+    function fillDataTableCart(paramData) {
+
+
+        for (var bI = 0; bI < paramData.length; bI++) {
+            $("#tr-cart").append(`
+            <tr>
+                <td>
+                    <input type="checkbox" name="" id="" class="filter-check">
+                </td>
+                <td class="">${bI + 1}</td>
+                <td>${paramData[bI].id}</td>
+                <td>${paramData[bI].product.productName}</td>
+                <td><img src="./image/${paramData[bI].product.photo}" alt="" width="100px"></td>
+                <td style="text-align: right;">
+                    <i id="minus-count" class="fas fa-minus-circle fa-lg minus"></i>
+                </td>
+                <td class="" style="text-align: center;">
+                        <p id="count" class="count-detail">${paramData[bI].quantity}</p>
+                        
+                </td>
+                <td >
+                    <i id="plus-count" class="fas fa-plus-circle fa-lg plus "></i>
+                </td>
+                <td>${paramData[bI].product.buyPrice}</td>
+                <td>${paramData[bI].totalBill}</td>
+                <td><i class="fa-solid fa-trash btn-delete" style="color: #1818e2;"></i></td>
+                </tr>
+            `)
+        }
+    }
+
+    function actionCountProduct() {
+
+    }
+
+</script>
+
+
+</html>
